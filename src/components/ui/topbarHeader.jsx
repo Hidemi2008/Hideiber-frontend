@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { Button } from "./button";
 import { ClipboardIcon } from "lucide-react";
+
 
 export default function TopbarHeader() {
     return (
@@ -12,9 +14,9 @@ export default function TopbarHeader() {
             </div>
 
             <div className="flex justify-center items-center gap-4">
-                <Button variant="outline" className="border-0">Entrar</Button>
+                <Button variant="outline" className="border-0"> <Link href="/login">Entrar</Link> </Button>
                 <Button className="bg-purple-600 text-white h-10 hover:bg-purple-700">
-                    Começar agora
+                    <Link href="/cadastro">Começar agora</Link>
                 </Button>
             </div>
         </header>

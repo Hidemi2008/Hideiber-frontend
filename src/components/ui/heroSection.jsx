@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import { Button } from "./button";
+import Link from "next/link"
 
 export default function HeroSection() {
     return (
@@ -20,10 +21,10 @@ export default function HeroSection() {
 
             <div className="flex gap-4">
                 <Button className="h-12 bg-purple-600 text-white px-6 py-3 hover:bg-purple-700">
-                    Criar conta gratuita
+                    <Link href="/cadastro">Criar conta gratuita</Link>
                 </Button>
                 <Button className="h-12 px-6 py-3 hover:bg-gray-500">
-                    Fazer login
+                    <Link href="/login">Fazer login</Link>
                 </Button>
             </div>
         </section>
