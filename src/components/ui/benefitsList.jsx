@@ -2,7 +2,7 @@ import { CircleCheck } from "lucide-react"
 
 export default function BenefitsList() {
     return (
-        <section className="flex flex-col justify-center items-center gap-8 bg-purple-50 mx-8 rounded-xl py-12 px-6">
+        <section className="flex flex-col justify-center items-center gap-12 bg-purple-50 mx-8 my-8 rounded-xl py-12 px-6">
 
             <h1 className="text-3xl font-bold">Por que escolher o Hideiber?</h1>
 

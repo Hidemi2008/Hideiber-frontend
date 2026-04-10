@@ -12,7 +12,7 @@ export default function TopbarFooter() {
             </div>
 
             <div>
-                <p className="text-gray-400">&copy; 2026 Hideiber. Todos os direitos reservados.</p>
+                <p className="text-gray-400 text-sm">&copy; 2026 Hideiber. Todos os direitos reservados.</p>
             </div>
         </footer>
     )
