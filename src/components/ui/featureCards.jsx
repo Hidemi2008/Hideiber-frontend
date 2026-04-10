@@ -3,7 +3,7 @@ import { ClipboardIcon, Clock, DollarSign } from "lucide-react";
 
 export default function FeatureCards() {
     return (
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-12">
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-6">
 
             <Card className="hover:shadow-2xl transition-shadow">
                 <CardHeader className="flex flex-col gap-2 ">
