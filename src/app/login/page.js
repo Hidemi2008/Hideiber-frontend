@@ -1,5 +1,5 @@
-import LoginForm from "@/components/ui/loginForm";
-import InfoSection from "@/components/ui/infoSection";
+import LoginForm from "@/components/login/loginForm";
+import InfoSection from "@/components/login/infoSection";
 
 export default function Login() {
     return (

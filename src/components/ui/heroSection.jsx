@@ -24,7 +24,7 @@ export default function HeroSection() {
                     <Link href="/cadastro">Criar conta gratuita</Link>
                 </Button>
                 <Button className="h-12 px-6 py-3 hover:bg-gray-500">
-                    <Link href="/login">Fazer login</Link>
+                    <Link href="/signUp">Fazer login</Link>
                 </Button>
             </div>
         </section>
