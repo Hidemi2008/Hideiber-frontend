@@ -14,12 +14,11 @@ export default function LoginForm() {
     return (
         <section className="flex flex-col justify-center gap-8 p-6 h-screen max-w-md w-full mx-auto">
 
-            <div className="flex items-center gap-4">
+            <Link className="flex items-center gap-4" href="/">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-600">
                     <ClipboardIcon className="w-6 h-6 text-white" />
                 </div>
-                <h1 className="text-xl font-bold">Hideiber</h1>
-            </div>
+                <h1 className="text-xl font-bold">Hideiber</h1></Link>
 
             <div className="flex flex-col gap-2 text-center sm:text-left">
                 <h2 className="text-2xl font-semibold">Bem-vindo de volta</h2>
@@ -67,7 +66,7 @@ export default function LoginForm() {
 
                 <p className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center text-sm text-gray-600">
                     <span>Não tem uma conta?</span>
-                    <Link href="/" className="text-purple-600 hover:underline">
+                    <Link href="/signUp" className="text-purple-600 hover:underline">
                         Criar conta
                     </Link>
                 </p>

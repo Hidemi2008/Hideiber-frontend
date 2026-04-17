@@ -1,6 +1,6 @@
 import { ClipboardIcon } from "lucide-react"
 
-export default function TopbarFooter() {
+export default function Footer() {
     return (
         <footer className="flex justify-between items-center text-center py-6 px-6 mx-4 mt-12 border-t">
 

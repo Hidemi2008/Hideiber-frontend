@@ -13,14 +13,14 @@ import Link from "next/link"
 export default function SignUpForm() {
     return (
         <section className="flex flex-col items-center justify-center min-h-screen p-6">
-            <div className="w-full max-w-md flex flex-col gap-6 sm:gap-8">
+            <div className="w-full max-w-md flex flex-col gap-6">
 
-                <div className="flex items-center gap-4 justify-center sm:justify-start">
+                <Link className="flex items-center gap-4 justify-center sm:justify-start" href="F/">
                     <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-600">
                         <ClipboardIcon className="w-6 h-6 text-white" />
                     </div>
                     <h1 className="text-xl font-bold">Hideiber</h1>
-                </div>
+                </Link>
 
                 <div className="flex flex-col gap-2 text-center sm:text-left">
                     <h2 className="text-2xl font-semibold">Criar sua conta</h2>
