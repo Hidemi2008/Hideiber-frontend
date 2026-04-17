@@ -2,7 +2,7 @@ import { ClipboardIcon } from "lucide-react";
 
 export default function InfoSection() {
     return (
-        <section className="bg-purple-100 h-full flex items-center justify-center">
+        <section className="bg-purple-100 h-full flex items-center justify-center pb-10">
             <div className="flex flex-col gap-6 p-8">
 
                 <div className="flex items-center justify-center w-15 h-15 rounded-full bg-purple-600">

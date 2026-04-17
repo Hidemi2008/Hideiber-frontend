@@ -21,7 +21,7 @@ export default function HeroSection() {
 
             <div className="flex gap-4">
                 <Button className="h-12 bg-purple-600 text-white px-6 py-3 hover:bg-purple-700">
-                    <Link href="/cadastro">Criar conta gratuita</Link>
+                    <Link href="/signUp">Criar conta gratuita</Link>
                 </Button>
                 <Button className="h-12 px-6 py-3 hover:bg-gray-500">
                     <Link href="/signUp">Fazer login</Link>
