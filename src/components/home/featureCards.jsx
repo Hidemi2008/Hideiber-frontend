@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card";
 import { ClipboardIcon, Clock, DollarSign } from "lucide-react";
 
 export default function FeatureCards() {

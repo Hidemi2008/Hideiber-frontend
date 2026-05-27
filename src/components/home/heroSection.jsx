@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-react";
-import { Button } from "./button";
+import { Button } from "../ui/button";
 import Link from "next/link"
 
 export default function HeroSection() {
@@ -24,7 +24,7 @@ export default function HeroSection() {
                     <Link href="/signUp">Criar conta gratuita</Link>
                 </Button>
                 <Button className="h-12 px-6 py-3 hover:bg-gray-500">
-                    <Link href="/signUp">Fazer login</Link>
+                    <Link href="/login">Fazer login</Link>
                 </Button>
             </div>
         </section>
