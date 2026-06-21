@@ -30,10 +30,32 @@ export default function PlansAdmin() {
 
   async function fetchPlans() {
     setLoading(true);
-    const res = await fetch(API);
-    const data = await res.json();
-    setPlans(data);
-    setLoading(false);
+    try {
+      const res = await fetch(API, { credentials: "include" });
+
+      if (!res.ok) {
+        console.error("Erro ao buscar planos, status:", res.status);
+        setPlans([]);
+        return;
+      }
+
+      const data = await res.json();
+
+      // Proteção: garante que só guardamos um array no estado.
+      // Se a API responder algo inesperado, plans.map mais abaixo
+      // quebraria a página inteira.
+      if (Array.isArray(data)) {
+        setPlans(data);
+      } else {
+        console.error("Resposta inesperada da API de planos:", data);
+        setPlans([]);
+      }
+    } catch (err) {
+      console.error("Erro ao buscar planos:", err);
+      setPlans([]);
+    } finally {
+      setLoading(false);
+    }
   }
 
   function openCreate() {
@@ -67,29 +89,56 @@ export default function PlansAdmin() {
       maxClicks: Number(form.maxClicks),
     };
 
-    const res = await fetch(editing ? `${API}/${editing.id}` : API, {
-      method: editing ? "PUT" : "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify(body),
-    });
+    try {
+      const res = await fetch(editing ? `${API}/${editing.id}` : API, {
+        method: editing ? "PUT" : "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(body),
+      });
 
-    setSaving(false);
+      if (!res.ok) {
+        // Tenta ler o erro vindo do backend; se a resposta não for JSON
+        // (ex: 401 sem body, ou erro de proxy), evita quebrar aqui também.
+        let message = "Erro ao salvar plano.";
+        try {
+          const data = await res.json();
+          message = data.error ?? message;
+        } catch {
+          message = `Erro ao salvar plano (status ${res.status}).`;
+        }
+        console.error("Erro ao salvar plano:", res.status, message);
+        setError(message);
+        return;
+      }
 
-    if (!res.ok) {
-      const data = await res.json();
-      setError(data.error ?? "Erro ao salvar plano.");
-      return;
+      setSheetOpen(false);
+      fetchPlans();
+    } catch (err) {
+      // Erro de rede, CORS, backend fora do ar, etc.
+      // Sem isso, o botão ficava preso em "Salvando..." para sempre.
+      console.error("Falha inesperada ao salvar plano:", err);
+      setError("Não foi possível conectar ao servidor. Tente novamente.");
+    } finally {
+      setSaving(false);
     }
-
-    setSheetOpen(false);
-    fetchPlans();
   }
 
   async function handleDelete(id) {
-    await fetch(`${API}/${id}`, { method: "DELETE", credentials: "include" });
-    setConfirmDelete(null);
-    fetchPlans();
+    try {
+      const res = await fetch(`${API}/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      if (!res.ok) {
+        console.error("Erro ao excluir plano:", res.status);
+      }
+    } catch (err) {
+      console.error("Falha inesperada ao excluir plano:", err);
+    } finally {
+      setConfirmDelete(null);
+      fetchPlans();
+    }
   }
 
   return (
